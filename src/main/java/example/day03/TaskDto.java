@@ -1,4 +1,4 @@
-package example.day_03;
+package example.day03;
 
 public class TaskDto {
 

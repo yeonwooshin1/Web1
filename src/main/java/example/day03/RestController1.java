@@ -1,4 +1,4 @@
-package example.day_03;
+package example.day03;
 
 // AppStart : 스프링 실행과 동시에 같은패키지/하위패키지내 모든 컴포넌트 스캔 자동 빈(객체)등록
 import org.springframework.web.bind.annotation.*;
