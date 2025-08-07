@@ -1,4 +1,4 @@
-package 과제.model.dto;
+package 과제.실습3.model.dto;
 
 public class WaitingDto {   // class start
 

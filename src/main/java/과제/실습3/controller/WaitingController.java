@@ -1,8 +1,8 @@
-package 과제.controller;
+package 과제.실습3.controller;
 
 import org.springframework.web.bind.annotation.*;
-import 과제.model.dao.WaitingDao;
-import 과제.model.dto.WaitingDto;
+import 과제.실습3.model.dao.WaitingDao;
+import 과제.실습3.model.dto.WaitingDto;
 
 import java.util.ArrayList;
 

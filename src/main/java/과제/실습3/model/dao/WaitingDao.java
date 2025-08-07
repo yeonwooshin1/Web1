@@ -1,6 +1,6 @@
-package 과제.model.dao;
+package 과제.실습3.model.dao;
 
-import 과제.model.dto.WaitingDto;
+import 과제.실습3.model.dto.WaitingDto;
 
 import java.sql.*;
 import java.util.ArrayList;
