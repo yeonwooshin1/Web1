@@ -10,6 +10,7 @@ import java.util.ArrayList;
 @RequestMapping("/waiting")
 public class WaitingController {    // class start
 
+
     // 0. DAO 싱글톤 불러오기
     private WaitingDao waitingDao = WaitingDao.getInstance();
 
@@ -36,5 +37,7 @@ public class WaitingController {    // class start
     public boolean listEdit (@RequestBody WaitingDto dto) {
         return waitingDao.listEdit(dto);
     }   // func end
+
+
 
 }   // class end
