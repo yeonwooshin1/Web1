@@ -2,7 +2,7 @@ package 종합.예제12.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
+
 import 종합.예제12.model.dao.BoardDao;
 import 종합.예제12.model.dto.BoardDto;
 

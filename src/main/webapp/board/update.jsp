@@ -9,13 +9,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <jsp:include page="/waiting/header.jsp"></jsp:include>
+    <jsp:include page="/board/header.jsp"></jsp:include>
+
     <div>
-        <h3> 등록페이지 </h3>
-        폰번호 : <input type="text" class="phone" /> <br/>
-        인원수 : <input type="text" class="count" /> <br/>
-        <button type="button" onclick="write1()"> 등록 </button>
+        <h3> 게시물 수정페이지 </h3>
+        내용 : <textarea class="bcontent"></textarea>
+        <button type="button" onclick="boardUpdate()"> 수정 </button>
     </div>
-    <script src="/waiting/write.js"></script>
+
+    <script src="/board/update.js"></script>
 </body>
 </html>

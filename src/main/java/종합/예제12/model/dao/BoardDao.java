@@ -114,6 +114,4 @@ public class BoardDao extends Dao{ // class start
         return false; // 예외발생시 수정실패
     }
 
-
-
 }   // class end

@@ -9,13 +9,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <jsp:include page="/waiting/header.jsp"></jsp:include>
+
     <div>
-        <h3> 등록페이지 </h3>
-        폰번호 : <input type="text" class="phone" /> <br/>
-        인원수 : <input type="text" class="count" /> <br/>
-        <button type="button" onclick="write1()"> 등록 </button>
+        <h3> 헤더 페이지 </h3>
+        <ol>
+            <li><a href="/board/index.jsp"> 홈 </a></li>
+            <li><a href="/board/list.jsp"> 게시판 </a></li>
+            <li><a href="/board/write.jsp"> 게시물 쓰기 </a></li>
+        </ol>
     </div>
-    <script src="/waiting/write.js"></script>
 </body>
 </html>
