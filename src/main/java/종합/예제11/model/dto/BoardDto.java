@@ -1,4 +1,4 @@
-package 종합.model.dto;   // package
+package 종합.예제11.model.dto;   // package
 
 public class BoardDto { // class start
 

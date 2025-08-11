@@ -1,6 +1,6 @@
-package 종합.model.dao;   // package
+package 종합.예제11.model.dao;   // package
 
-import 종합.model.dto.BoardDto;
+import 종합.예제11.model.dto.BoardDto;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

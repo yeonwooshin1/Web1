@@ -1,4 +1,4 @@
-package 종합; // package
+package 종합.예제11; // package
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
