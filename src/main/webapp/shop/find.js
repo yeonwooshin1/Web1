@@ -52,35 +52,35 @@ const memberUpdate = async() => {
     const joinDate = joinDateInput.value;
     const grade = gradeInput.value;
     const city = cityInput.value;
-
-    if( customerName == null ) {
+    
+    if( customerName.trim() === '' ) {
         alert("회원성명이 입력되지 않았습니다.");
-        return
+        return;
     }
 
-    if( phone == null ) {
+    if( phone.trim() == '' ) {
         alert("회원전화가 입력되지 않았습니다.");
-        return
+        return;
     }
 
-    if( address == null ) {
+    if( address.trim() == '' ) {
         alert("회원주소가 입력되지 않았습니다.");
-        return
+        return;
     }
 
-    if (joinDate && joinDate.length !== 8) {
+    if (joinDate.trim() == '' && joinDate.length !== 8) {
         alert("가입일자는 8자리로 입력 혹은 비어있어야 합니다.");
         return;
     }
 
     if( grade !== "A" && grade !== "B" && grade !== "C" ) {
         alert("회원 등급은 A , B , C 만 입력 가능합니다.");
-        return
+        return;
     }
 
-    if( city == null ) {
+    if( city.trim() == '' ) {
         alert("도시코드가 입력되지 않았습니다.");
-        return
+        return;
     }
 
     const object = { customerNo, customerName , phone , address  , joinDate , grade , city };
