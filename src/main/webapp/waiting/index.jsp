@@ -13,6 +13,7 @@
     <jsp:include page="/waiting/header.jsp"></jsp:include>
     <div>
         <h3> 메인 페이지 </h3>
+        <h3> 실습5 </h3>
         <p> localhost:8080/waiting/index.jsp </p>
     </div>
 </body>

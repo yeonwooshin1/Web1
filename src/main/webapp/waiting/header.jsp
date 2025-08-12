@@ -15,8 +15,7 @@
         <ol>
             <li><a href="/waiting/index.jsp">홈</a></li>
             <li><a href="/waiting/write.jsp">대기 등록</a></li>
-            <li><a href="/waiting/edit.jsp">대기 수정</a></li>
-            <li><a href="/waiting/print.jsp">대기 목록</a></li>
+            <li><a href="/waiting/list.jsp">대기 목록</a></li>
 
         </ol>
     </div>

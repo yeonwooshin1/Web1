@@ -14,13 +14,13 @@ const write1 = async() => {
         body : JSON.stringify( object )
     }
 
-    const response = await fetch("/waiting/write" , option);
+    const response = await fetch("/waiting", option);
     
     const data = await response.json();
 
     if(data == true){
         alert('등록이 완료되었습니다.');
-        location.href="/waiting/print.jsp"; 
+        location.href="/waiting/list.jsp"; 
     } 
     else {
         alert('등록이 실패되었습니다.')

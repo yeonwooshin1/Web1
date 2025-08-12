@@ -4,6 +4,7 @@ use waitingList;
 create table list(
     phone varchar(30) not null ,
     count int not null ,
+    setdate DATETIME DEFAULT NOW(),
     seq int auto_increment ,
 	constraint primary key(seq)
 );
