@@ -6,12 +6,13 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/shop/assets/style.css">
 </head>
 <body>
 
     <jsp:include page="/shop/header.jsp"></jsp:include>
     <div>
-        <h3> 회원목록 조회 수정 </h3>
+        <h3> 회원목록조회/수정 </h3>
         <table border="2">
             <thead>
                 <tr>
@@ -23,6 +24,7 @@
             </tbody>
         </table>
     </div>
+    <jsp:include page="/shop/footer.jsp"></jsp:include>
 
     <script src="/shop/memberList.js"></script>
 

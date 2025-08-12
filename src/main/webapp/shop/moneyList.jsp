@@ -6,6 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/shop/assets/style.css">
 </head>
 <body>
 
@@ -22,6 +23,7 @@
             </tbody>
         </table>
     </div>
+    <jsp:include page="/shop/footer.jsp"></jsp:include>
 
     <script src="/shop/moneyList.js"></script>
 

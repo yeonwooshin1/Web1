@@ -1,0 +1,211 @@
+/* ===============================
+   HRIDKOREA - Screenshot Match v2
+   (Desktop / 820px 고정폭, 조밀 레이아웃)
+   =============================== */
+
+/* 최소 리셋 */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+a { text-decoration: none; color: inherit; }
+
+/* 기본 */
+body {
+  background: #e6e6ea;          /* 문서 전체 연회색 */
+  color: #222;
+  font-size: 13px;               /* 스크린샷 느낌의 작은 글씨 */
+  line-height: 1.35;
+}
+
+/* 공통 컨테이너 폭 */
+body > .aa,
+body > .bb,
+body > div,
+footer,
+body > div + .footer,
+body > .footer {
+  width: 820px;
+  margin: 0 auto;
+}
+
+/* 상단 타이틀 바 (.aa) — 짙은 파랑 띠 */
+.aa {
+  background: linear-gradient(#5d7dc4, #2e55a2);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-top: 4px solid #244b92;
+  border-bottom: 4px solid #244b92;
+  letter-spacing: .2px;
+}
+
+/* 내비게이션 바 (.bb) — 보라빛 파랑 */
+.bb {
+  background: #6f7cc8;
+  border-bottom: 2px solid #2b3ea3;
+}
+.bb ol {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+}
+.bb li a {
+  display: block;
+  padding: 6px 14px;
+  color: #eef2ff;
+  font-weight: 700;
+  border-right: 1px solid rgba(255,255,255,.28);
+}
+.bb li:first-child a { border-left: 1px solid rgba(255,255,255,.28); }
+.bb li a:hover { background: rgba(0,0,0,.12); }
+
+/* 콘텐츠 패널 (index, write, find, list 등 모두) */
+body > div {
+  background: #ededf0;            /* 스크린샷의 회색 바탕 */
+  min-height: 420px;
+  padding: 14px 16px;
+  border: 1px solid #c9cddd;
+  border-top: none;
+}
+
+/* 가운데 큰 제목 */
+body > div h3 {
+  margin: 6px 0 14px;
+  text-align: center;
+  color: #2f3c7e;
+  font-weight: 800;
+}
+
+/* ===== 폼(등록/수정) 영역 ===== */
+input[type="text"] {
+  width: 340px;
+  height: 28px;                  /* 낮은 높이 */
+  padding: 3px 8px;
+  margin: 2px 0 6px 24px;        /* 텍스트 라벨과 간격 */
+  border: 1px solid #b7bfd6;     /* 회색 테두리 */
+  border-radius: 2px;            /* 거의 각진 박스 */
+  background: #fff;
+  outline: none;
+  font-size: 13px;
+}
+input[type="text"]:focus {
+  border-color: #3b5ed7;
+  box-shadow: 0 0 0 2px rgba(59,94,215,.12);
+}
+input[disabled] {
+  color: #555;
+  background: #f2f4f9;
+}
+
+/* 브레이크 간격 살짝 촘촘히 */
+body > div > br { line-height: 8px; }
+
+/* 버튼 — 작고 진한 파랑 */
+button[type="button"] {
+  min-width: 76px;
+  height: 28px;
+  padding: 2px 10px;
+  border: 1px solid #2f4fc6;
+  border-radius: 4px;
+  background: linear-gradient(#4e6fe0, #3858c5);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 6px;
+}
+button[type="button"]:hover { filter: brightness(1.06); }
+
+/* ===== 테이블 (목록/매출) ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 8px;
+  border: 1px solid #c9cddd;
+}
+thead th {
+  background: #2e55a2;           /* 상단 파란 헤더 */
+  color: #fff;
+  text-align: center;
+  padding: 6px 8px;
+  font-weight: 800;
+  border-right: 1px solid rgba(255,255,255,.35);
+  white-space: nowrap;
+  font-size: 13px;
+}
+thead th:last-child { border-right: none; }
+
+tbody td {
+  padding: 6px 8px;
+  border-top: 1px solid #e2e6f2;
+  border-right: 1px solid #eef1f8;
+  color: #333;
+  font-size: 13px;
+}
+tbody td:last-child { border-right: none; }
+tbody tr:nth-child(even) { background: #f7f8fd; }
+tbody tr:hover { background: #eef3ff; }
+tbody td:nth-child(1),
+tbody td:nth-child(4) { text-align: center; }
+
+/* ===== 푸터 — 파란 띠 ===== */
+body > div + .footer h3,
+footer h3,
+body > .footer > h3 {
+  margin: 0;
+  background: linear-gradient(#2e55a2, #2c56b4);
+  color: #e9f0ff;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 8px;
+  border-top: 4px solid #244b92;
+  border-bottom: 4px solid #244b92;
+}
+
+/* 필요 시 가이드 점선(스크린샷의 붉은 점선 느낌) — 기본은 숨김 */
+body > div::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(199,40,40,0); /* 0.35로 바꾸면 보임 */
+  pointer-events: none;
+}
+
+/* ===== Compact overrides (append at end of style.css) ===== */
+
+/* 전체 콘텐츠 패딩, 최소높이 제거 */
+body > div {
+  min-height: auto;
+  padding: 14px 16px;
+  box-shadow: none; /* 원하면 유지해도 됨 */
+}
+
+/* 상단 타이틀/네비 바 높이 축소 */
+.aa { padding: 8px 12px; }
+.bb li a { padding: 6px 12px; font-weight: 600; }
+
+/* 제목 여백 축소 */
+body > div h3 { margin: 6px 0 12px; }
+
+/* 입력 필드 높이/여백 축소 */
+input[type="text"] {
+  height: 30px;
+  padding: 4px 8px;
+  margin: 2px 0 6px 8px;
+  font-size: 13px;
+}
+
+/* 버튼 높이/패딩 축소 */
+button[type="button"] {
+  height: 32px;
+  min-width: 80px;
+  padding: 4px 10px;
+  font-weight: 600;
+}
+
+/* 테이블 간격 축소 */
+thead th { padding: 6px 8px; font-weight: 700; }
+tbody td { padding: 6px 8px; }
+
+/* 줄 간격 전반 축소 느낌 */
+body { line-height: 1.35; }

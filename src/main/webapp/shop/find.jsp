@@ -7,6 +7,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/shop/assets/style.css">
 </head>
 <body>
     <jsp:include page="/shop/header.jsp"></jsp:include>

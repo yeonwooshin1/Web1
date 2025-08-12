@@ -7,15 +7,16 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/shop/assets/style.css">
 </head>
 <body>
     <!-- 현재 JSP 파일내 다른 JSP 포함하기 -->
     <jsp:include page="/shop/header.jsp"></jsp:include>
     
-    <div>
-        <h3> 쇼핑몰 회원관리.ver 1.0 </h3>
-        <p> localhost:8080/shop/index.jsp </p>
+    <div class="aa">
+        <h3> 쇼핑몰 회원관리 프로그램 </h3>
     </div>
+    <div class="bb"> 쇼핑몰 회원정보와 회원매출정보 데이터베이스를 구축하고 회원관리 프로그램을 작성하는 프로그램이다.</div>
     
     <jsp:include page="/shop/footer.jsp"></jsp:include>
 </body>
