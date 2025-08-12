@@ -18,6 +18,11 @@ public class MemberController {
     private MemberService memberService;
 
     // 메소드
+    @GetMapping("/nextNo")
+    public int getNextCustomerNo() {
+        return memberService.getNextCustomerNo();
+    }
+
     @PostMapping
     public boolean memberWrite(@RequestBody MemberDto memberDto){
         // joinDate 정규화: "YYYYMMDD" 또는 "yyyy-MM-dd" → "yyyy-MM-dd", 빈값/누락 → null

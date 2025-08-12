@@ -19,7 +19,7 @@
         회원주소 : <input type="text" class="address" /> <br/>
 
         가입일자 : <input type="text" placeholder="YYYYMMDD" inputmode="numeric" 
-        maxlength="8"class="joinDate" /> <br/>
+        maxlength="8" class="joinDate" /> <br/>
 
         고객등급[A:VIP, B:일반, C:직원] : <input type="text" class="grade" /> <br/>
         도시코드 : <input type="text" class="city" /> <br/>
@@ -27,7 +27,7 @@
         <button type="button" onclick="memberUpdate()"> 수정 </button>
         <button type="button" onclick="location.href='/shop/memberList.jsp'">조회</button>
     </div>
-    <script src="/shop/find.js"></script>
+    <script src="/shop/find.js?time=<%= System.currentTimeMillis() %>"></script>
     
 </body>
 </html>

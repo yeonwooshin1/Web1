@@ -32,10 +32,10 @@ public class MoneyDao extends Dao {
 
             while (rs.next()) {
                 list.add(new MoneyDto(
-                        rs.getInt("CustomerNo"),
-                        rs.getString("CustomerName"),
-                        rs.getString("Grade"),
-                        rs.getInt("Sales")
+                        rs.getInt("customerNo"),
+                        rs.getString("customerName"),
+                        rs.getString("grade"),
+                        rs.getInt("sales")
                 ));
             }
         } catch (Exception e) {

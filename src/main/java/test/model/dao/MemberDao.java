@@ -15,6 +15,25 @@ import java.util.ArrayList;
 public class MemberDao extends Dao{
 
 
+    // 자동으로 회원번호 가져오는 로직
+    public int getNextCustomerNo() {
+        int nextNo = 1;
+        try {
+            // ifnull( null 아닌 값 , null일 때 값 )
+            String sql = "select ifnull(max(CUSTNO), 0) + 1 as nextNo from MEMBER_TBL_02";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                nextNo = rs.getInt("nextNo");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nextNo;
+    }   // func end
+
+
 
     // 등록
     public boolean memberWrite( MemberDto memberDto ){
@@ -96,7 +115,6 @@ public class MemberDao extends Dao{
                 String joinDate = (jd != null) ? jd.toLocalDate().toString() : null; // yyyy-MM-dd
                 dto.setJoinDate(joinDate);
 
-                dto.setCustomerNo(rs.getInt("CUSTNO")); // rs.get타입("가져올속성명or번호")
                 dto.setCustomerName(rs.getString("CUSTNAME") );
                 dto.setPhone(rs.getString("PHONE"));
                 dto.setAddress(rs.getString("ADDRESS"));
