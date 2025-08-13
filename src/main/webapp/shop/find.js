@@ -68,7 +68,7 @@ const memberUpdate = async() => {
         return;
     }
 
-    if (joinDate.trim() == '' && joinDate.length !== 8) {
+    if (joinDate.trim() !== '' && joinDate.length !== 8) {
         alert("가입일자는 8자리로 입력 혹은 비어있어야 합니다.");
         return;
     }

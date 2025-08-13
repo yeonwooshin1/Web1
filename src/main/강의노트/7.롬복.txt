@@ -1,17 +1,17 @@
 [롬복] lombok
-    1. 정의 : 반복되는 코드들을 줄여주는 라이브러리(미리 만들어진 코드)
-    2. 목적 : DTO , VO , ENTITY 에서 주로 사용된다.
-        - DTO       : data transfer object 데이터 (레이어간의) 이동 객체
-        - VO        : value object 데이터 값을 가진 객체 (*읽기모드/setter없음)
-        - ENTITY    : 개체(실재/본체) 데이터의 실체 ( 주로 DB 레코드 뜻 )
+    1. 정의 : 반복되는 코드들을 줄여주는 라이브러리(미리 만들어진코드)
+    2. 목적 : DTO, VO , ENTITY 에서 주로 사용된다.
+        - DTO : data transfer object 데이터 (레이어간의)이동 객체
+        - VO : value object 데이터 값을 가진 객체 (*읽기모드/setter없음)
+        - ENTITY : 개체(실재/본체) 데이터의 실제 ( 주로 DB 레코드 뜻 )
     3. 설치
         1] (환경)인텔리제이 설치 : [파일] -> [설정] -> [플러그인] -> lombok 검색 -> 설치
-        2) (프로젝트)그레이들 설치 :
-          1. https://start.spring.io/
-          2. 디펜더시 에서 'lombok' 검색
-          3.  'build.gradle' 파일내 dependencies{} 추가.
-               compileOnly 'org.projectlombok:lombok'
-               annotationProcessor 'org.projectlombok:lombok'
+        2] (프로젝트)그레이들 설치 :
+              1. https://start.spring.io/
+              2. 디펜더시 에서 'lombok' 검색
+              3. 'build.gradle' 파일내 dependencies{} 추가.
+                 compileOnly 'org.projectlombok:lombok'
+                 annotationProcessor 'org.projectlombok:lombok'
 
 [ 롬복 주요 어노테이션 ]
     1. @NoArgsConstructor           : 디폴트(기본) 생성자 코드 생성
