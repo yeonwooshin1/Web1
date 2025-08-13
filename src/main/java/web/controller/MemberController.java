@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import web.model.dto.MemberDto;
 import web.service.MemberService;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/member")
 public class MemberController {
@@ -68,14 +70,54 @@ public class MemberController {
     }   // func end
 
     // [5] 중복 검사
+    @GetMapping("/check")
+    public boolean check(@RequestParam String type , @RequestParam String data ){
+        boolean result = memberService.check( type , data );
+        return result;
+    }
 
     // [6] 회원 정보 수정
+    @PutMapping("/update")
+    public boolean update( @RequestBody MemberDto memberDto , HttpServletRequest request ){
+        HttpSession session = request.getSession();
+        if( session == null || session.getAttribute("loginNo") == null ){
+            return false;
+        }   // if end
+
+        // 가져오기
+        Object obj = session.getAttribute("loginNo");
+
+        // dto에 setter해주기
+        memberDto.setMno((int) obj);
+
+        return memberService.update(memberDto);
+    }   // func end
 
     // [7] 비밀번호 수정
+    @PutMapping("/update/password")
+    public boolean updatePassword(@RequestBody Map<String,String> map , HttpServletRequest request ) {
+        HttpSession session = request.getSession();
+
+        if( session == null || session.getAttribute("loginNo") == null ){
+            return false;
+        }   // if end
+
+        // 가져오기
+        Object obj = session.getAttribute("loginNo");
+
+        int loginMno = (int) obj;
+
+        return memberService.updatePassword(loginMno , map);
+    }   // func end
 
     // [8] 회원 탙퇴
-
-
-
-
+    @DeleteMapping("/delete")
+    public boolean delete( @RequestParam String oldpwd , HttpSession session ){
+        // 1.매개변수로 받은 요청정보내 세션객체를 확인 해서 없으면 비로그인상태
+        if( session == null || session.getAttribute("loginMno") == null )return false;
+        // 2.
+        int loginMno = (int)session.getAttribute("loginMno");
+        // 3.
+        return memberService.delete( loginMno , oldpwd );
+    } // func end
 } // class end

@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Map;
+import java.util.Set;
 
 @Repository // 스프링 컨테이너에 빈 등록
 public class MemberDao extends Dao { // JDBC 연동 상속받기
@@ -87,13 +89,89 @@ public class MemberDao extends Dao { // JDBC 연동 상속받기
 
 
     // [5] 중복 검사
+    // private static final Set<String> ALLOW_OBJ = Set.of("mid", "mphone"); 허용 칼럼 지정가능
+    public boolean check( String type , String data ) {
+        try {
+
+            // if (!ALLOW_OBJ.contains(type)) { // contains 되지 않은 type이 들어오면?
+            //    return false;                 // false 반환 --> 그거보단 예외처리도 좋음.
+            //}
+
+            String sql = "select * from member where" + type +" = ? ";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, data);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()) {
+                return true;
+            } // if end
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }   // catch end
+        return false;
+    }   // func end
 
     // [6] 회원 정보 수정
+    public boolean update( MemberDto memberDto ) {
+        try {
+            String sql ="update member set mname=?, mphone=? where mno = ? ";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, memberDto.getMname());
+            ps.setString(2, memberDto.getMphone());
+            ps.setInt(3, memberDto.getMno());
+
+            int result = ps.executeUpdate();
+
+            return result == 1;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }  // catch end
+    }   // func end
 
     // [7] 비밀번호 수정
+    public boolean updatePassword( int mno , Map<String, String > map ) {
+        try {
+            String sql = "update member set mpwd = ? where mno = ? and mpwd = ? ";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString( 1 , map.get("newpwd") ); // 새로운 패스워드
+
+            ps.setInt( 2, mno );
+
+            ps.setString( 3 , map.get("oldpwd") ); // 기존 패스워드
+
+            int count = ps.executeUpdate();
+            return count == 1 ;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }   // catch end
+    }   // func end
 
     // [8] 회원 탙퇴
+    public boolean delete( int mno , String oldpwd ) {
+        try {
+            String sql = "delete from member where mno = ? and mpwd = ?";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
 
+            ps.setInt( 1 , mno );
+            ps.setString( 2 , oldpwd );
 
+            return ps.executeUpdate() == 1;
 
+        } catch ( Exception e ){
+            System.out.println(e);
+            return false;
+        }   // catch end
+    }   // func end
 } // class end
