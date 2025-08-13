@@ -2,14 +2,14 @@ package web.model.dao;
 
 import org.springframework.stereotype.Repository;
 import web.model.dto.MemberDto;
-import web.service.MemberService;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Map;
-import java.util.Set;
+
 
 @Repository // 스프링 컨테이너에 빈 등록
 public class MemberDao extends Dao { // JDBC 연동 상속받기
