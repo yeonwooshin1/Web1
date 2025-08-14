@@ -21,3 +21,7 @@ INSERT INTO member (mid, mpwd, mname, mphone, mdate) VALUES
 ('leepeace', 'abcd1111', '이평화', '010-2222-3333', '2025-08-03 17:45:00'),
 ('parkjoy',  'pass9999', '박기쁨', '010-5555-6666', '2025-08-04 08:05:00'),
 ('choifit',  'fit2025',  '최건강', '010-7777-8888', '2025-08-05 19:30:00');
+
+select * from member;
+select mid from member where mname = '유재석1' and mphone = '010-1234-1235';
+select mno from member where mid = 'qwe123' and mphone = '010-1234-1235';
