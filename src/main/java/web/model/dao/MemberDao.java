@@ -175,4 +175,69 @@ public class MemberDao extends Dao { // JDBC 연동 상속받기
             return false;
         }   // catch end
     }   // func end
+
+    // [9] 아이디 찾기
+    public MemberDto findId( MemberDto memberDto ){
+        try {
+            String sql = "select mid from member where mname = ? and mphone = ?";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString( 1 , memberDto.getMname() );
+            ps.setString( 2 , memberDto.getMphone() );
+
+            ResultSet rs = ps.executeQuery();
+
+            if ( rs.next() ) {
+                MemberDto dto = new MemberDto();
+                dto.setMid(rs.getString("mid"));
+                return dto;
+            }
+        } catch ( Exception e ){
+            System.out.println(e);
+        }   // catch end
+        return null;
+    }   // func end
+
+    // [10] 비밀번호 찾기
+    public int findPwd( MemberDto memberDto ){
+        try {
+            String sql = "select mno from member where mid = ? and mphone = ?";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString( 1 , memberDto.getMid() );
+            ps.setString( 2 , memberDto.getMphone() );
+
+            ResultSet rs = ps.executeQuery();
+
+            if ( rs.next() ) {
+                return rs.getInt("mno");
+            }
+        } catch ( Exception e ){
+            System.out.println(e);
+        }   // catch end
+        return 0;
+    }   // func end
+
+    // [11] 새로운 임시 비밀번호
+    public boolean putNewPwd( String newPwd , int mno ){
+        try {
+            String sql = "update member set mpwd = ? where mno = ? ";
+            Connection conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString( 1 , newPwd ); // 새로운 패스워드
+
+            ps.setInt( 2, mno );
+
+            int count = ps.executeUpdate();
+            return count == 1 ;
+
+        } catch ( Exception e ) {
+            System.out.println(e);
+        }
+        return false;
+    }   // func end
+
 } // class end

@@ -2,8 +2,10 @@ console.log( 'signup.js open');
 
 // [1] 회원가입
 const signup = async() =>{
+
     // 만약에 유효성검사 체크리스트에 false 가 존재하면 회원가입 진행 불가능.
-    if( signPass[0] == false ){ 
+    // includes(false) => 인덱스 안에 false가 있다면??
+    if( signPass.includes(false) ){ 
         alert('올바른 정보를 입력후 가능합니다.');
         return;
     }
@@ -31,7 +33,7 @@ const signup = async() =>{
 // <마크업> 이벤트 : onClick( 해당 마크업을 클릭했을때 ) , onkeyup( 해당 마크엡에 키를 떼었을때 )
 
 // *** 유효성검사 체크리스트 ***
-const signPass = [ false ]; // 초기값은 실패 , 0인덱스:아이디체크 , 1인덱스 : 연락처체크
+const signPass = [ false , false ]; // 초기값은 실패 , 0인덱스:아이디체크 , 1인덱스 : 연락처체크
 
 // [2] 아이디중복검사 : 입력할때마다 발동 
 const idcheck = async () =>{
@@ -60,3 +62,27 @@ const idcheck = async () =>{
     }
 }
 // [3] 연락처중복검사 : 입력할때마다 발동
+const phoneCheck = async () => {
+    const mphone = document.querySelector("#phoneInput").value;
+    const phonecheck = document.querySelector(".phonecheck");
+
+    if(mphone.length != 13 ){
+        phonecheck.innerHTML = "-(하이픈) 포함한 13글자 연락처 입력해주세요.";
+        return;
+    }   // if end
+
+    const option = { method : "GET" }
+    const response = await fetch( `/member/check?type=mphone&data=${mphone}` , option  );
+
+    const data = await response.json();
+
+    // 4. fetch 결과
+    if( data == true ){
+        phonecheck.innerHTML = "사용중인 연락처 입니다."
+        signPass[1] = false; // 유효성검사 상태 변경
+    }else{
+        phonecheck.innerHTML = "사용가능한 연락처 입니다."
+        signPass[1] = true; // 유효성검사 상태 변경
+    }   // if end
+
+}   // func end 

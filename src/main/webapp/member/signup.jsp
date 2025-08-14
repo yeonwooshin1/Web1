@@ -25,8 +25,8 @@
         
         이름 : <input type="text" class="nameInput" id="nameInput"/>        <br/>
         
-        연락처 : <input onkeyup="pwdcheck()" type="text" class="phoneInput" id="phoneInput"/>    <br/>
-        <div class="phoneCheck"> </div>
+        연락처 : <input onkeyup="phoneCheck()" type="text" class="phoneInput" id="phoneInput"/>    <br/>
+        <div class="phonecheck"> </div>
 
         <button type="button" onclick="signup()"> 회원가입 </button> <br/>
         <a href="/member/login.jsp"> 로그인하기 </a>

@@ -109,7 +109,12 @@ public class MemberController {
 
         int loginMno = (int) obj;
 
-        return memberService.updatePassword(loginMno , map);
+        boolean result = memberService.updatePassword(loginMno , map);
+
+        if(result)  session.removeAttribute("loginMno");
+
+        return result;
+
     }   // func end
 
     // [8] 회원 탙퇴
@@ -120,6 +125,27 @@ public class MemberController {
         // 2.
         int loginMno = (int)session.getAttribute("loginMno");
         // 3.
-        return memberService.delete( loginMno , oldpwd );
+        boolean result = memberService.delete( loginMno , oldpwd );
+
+        if(result)  session.removeAttribute("loginMno");
+
+        return result;
     } // func end
+
+    // [9] 아이디 찾기
+    @PostMapping("/find")
+    public MemberDto findId( @RequestBody MemberDto memberDto ){
+        return memberService.findId( memberDto );
+    }   // func end
+
+    // [10] 비밀번호 찾기
+    @PutMapping("/find")
+    public Map<String, Object> findPwd(@RequestBody MemberDto memberDto) {
+        String result = memberService.findPwd(memberDto);
+        if (result.equals("bad")) {
+            return Map.of("status", "bad");
+        }
+        return Map.of("status", result);
+    }
+
 } // class end
