@@ -220,7 +220,7 @@ public class MemberDao extends Dao { // JDBC 연동 상속받기
         return 0;
     }   // func end
 
-    // [11] 새로운 임시 비밀번호
+    // [11] 새로운 임시 비밀번호 발급!
     public boolean putNewPwd( String newPwd , int mno ){
         try {
             String sql = "update member set mpwd = ? where mno = ? ";
