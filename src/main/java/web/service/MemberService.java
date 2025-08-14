@@ -71,7 +71,7 @@ public class MemberService {
         int result = memberDao.findPwd(memberDto);
 
         if(result > 0){
-            String random = createRandomNum(10);
+            String random = generateRandomCode(10);
             if( !memberDao.putNewPwd( random , result) ){
                 return "bad";
             }
@@ -82,13 +82,21 @@ public class MemberService {
     }   // func end
 
     // 난수 생성 헬퍼 메소드
-    String createRandomNum(int digits) {
-        // 난수
-        SecureRandom RANDOM_DIGITS = new SecureRandom();
-        // 10의 digits => 10 , 10의 10승의 랜덤 숫자 만듦.
-        int bound = (int) Math.pow(10, digits);
-        // String 화. 10자리 숫자 아니면 나머지는 0으로 채움.
-        return String.format("%0" + digits + "d", RANDOM_DIGITS.nextInt(bound));
-    }   // func end
+    public String generateRandomCode(int length) {
+        // 사용할 문자 집합 (숫자 + 대문자 + 소문자 + 특수문자)
+        String charSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*";
+
+        // 보안성이 높은 난수 생성기 (OTP나 비밀번호 생성에 적합)
+        SecureRandom random = new SecureRandom();
+
+        StringBuilder sb = new StringBuilder(length);
+        // 더하기 더하기 더하기~
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(charSet.length());
+            sb.append(charSet.charAt(index));
+        }
+
+        return sb.toString();
+    }
 
 }   // class end
