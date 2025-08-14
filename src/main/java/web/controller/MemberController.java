@@ -39,6 +39,7 @@ public class MemberController {
     }   // func end
 
     // [3] 로그아웃
+    @GetMapping("/logout")
     public boolean logout( HttpServletRequest request ){
         HttpSession session = request.getSession();
         // 비로그인상태; // 로그아웃 실패
@@ -54,11 +55,12 @@ public class MemberController {
     @GetMapping("/info")
     public MemberDto info( HttpServletRequest request ){
         HttpSession session = request.getSession();
-        if(session == null || session.getAttribute("loginNo") == null) {
+        if(session == null || session.getAttribute("loginMno") == null) {
             return null;
         }   // if end
         // 로그인이면 세션 정보내 로그인상태 속성값 호출
         Object obj = session.getAttribute("loginMno"); // 로그인시 정의 속성명과 동일하게 작성
+        System.out.println(obj);
         // Object 타입은 자바의 최상위 클래스로써 모든 자료를 저장한다. 세션은 Object 타입으로 저장한다.
         // 즉] 세션은 모든 타입의 자료를 저장할 수 있다.
         // 타입변환 , 강제타입변환이란?  (변환할타입명)변수명; , **태생!!** : Object 가 되기전에 타입 확인? int
@@ -80,12 +82,12 @@ public class MemberController {
     @PutMapping("/update")
     public boolean update( @RequestBody MemberDto memberDto , HttpServletRequest request ){
         HttpSession session = request.getSession();
-        if( session == null || session.getAttribute("loginNo") == null ){
+        if( session == null || session.getAttribute("loginMno") == null ){
             return false;
         }   // if end
 
         // 가져오기
-        Object obj = session.getAttribute("loginNo");
+        Object obj = session.getAttribute("loginMno");
 
         // dto에 setter해주기
         memberDto.setMno((int) obj);
@@ -98,12 +100,12 @@ public class MemberController {
     public boolean updatePassword(@RequestBody Map<String,String> map , HttpServletRequest request ) {
         HttpSession session = request.getSession();
 
-        if( session == null || session.getAttribute("loginNo") == null ){
+        if( session == null || session.getAttribute("loginMno") == null ){
             return false;
         }   // if end
 
         // 가져오기
-        Object obj = session.getAttribute("loginNo");
+        Object obj = session.getAttribute("loginMno");
 
         int loginMno = (int) obj;
 

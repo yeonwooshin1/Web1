@@ -42,7 +42,7 @@ public class MemberDao extends Dao { // JDBC 연동 상속받기
     // [2] 로그인
     public int login(MemberDto memberDto) {
         try{
-            String sql = "select * from member where mid = ? , mpwd = ?";
+            String sql = "select * from member where mid = ? and mpwd = ? ";
             Connection conn = getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -79,6 +79,7 @@ public class MemberDao extends Dao { // JDBC 연동 상속받기
                 memberDto.setMname( rs.getString( "mname" ) );
                 memberDto.setMphone( rs.getString( "mphone" ) );
                 memberDto.setMdate( rs.getString( "mdate" ) );
+                System.out.println(memberDto);
                 return memberDto;
             }
         } catch (Exception e) {
@@ -97,7 +98,7 @@ public class MemberDao extends Dao { // JDBC 연동 상속받기
             //    return false;                 // false 반환 --> 그거보단 예외처리도 좋음.
             //}
 
-            String sql = "select * from member where" + type +" = ? ";
+            String sql = "select * from member where " + type +" = ? ";
             Connection conn = getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
 
