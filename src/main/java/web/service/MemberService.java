@@ -91,11 +91,13 @@ public class MemberService {
 
         StringBuilder sb = new StringBuilder(length);
         // 더하기 더하기 더하기~
+        // i를 매개변수 length 만큼 돌린다. charSet 즉 내가 만든 문자열의 길이중 하나를 랜덤으로 뽑는다
+        // 그것을 index로 하고 charSet에 하나하나 append 해준다.
         for (int i = 0; i < length; i++) {
             int index = random.nextInt(charSet.length());
             sb.append(charSet.charAt(index));
         }
-
+        // 짜잔 그걸 반환하면 된다.
         return sb.toString();
     }
 
