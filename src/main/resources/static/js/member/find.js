@@ -59,7 +59,7 @@ const pwdFind = async() => {
             alert("입력하신 정보가 일치하지 않습니다.");
             return;
         } 
-        const result = "임시 비밀번호는 : " + data.status + " 입니다. 로그인 새로운 비밀번호로 변경하세요."
+        const result = "임시 비밀번호는 : " + data.status + " 입니다. 로그인 후 즉시 새로운 비밀번호로 변경하세요."
         resultFind.innerHTML = result ;
 
     } catch {
