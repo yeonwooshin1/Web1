@@ -28,6 +28,19 @@
     <a href="/member/pwdupdate.jsp"> 비밀번호 수정</a> <br>
     <a href="#" onclick="onDelete()"> 회원 탈퇴 </a>
 
+    <h3>내 포인트 지급 내역 </h3>
+    <table border = "2">
+        <thead>
+            <tr>
+                <th> 번호 </th> <th> 포인트량 </th> <th> 지급사유 </th> <th> 날짜 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody id="pointTbody">
+            </tbody>
+        </tbody>
+    </table>
+
     <script src="/js/member/info.js"></script>
 </body>
 </html>

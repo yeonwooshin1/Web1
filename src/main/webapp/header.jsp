@@ -27,6 +27,7 @@
             <li> <a href="/member/signup.jsp"> 회원가입 </a></li>
             <!-- 로그인 했을때 구역 -->
             <li> <span> OOO님 </span> </li>
+            <li> <span> (현재 포인트: 1,200점) </span></li>
             <li> <a href="/member/info.jsp"> 내정보 </a> </li>
             <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
         </ul>

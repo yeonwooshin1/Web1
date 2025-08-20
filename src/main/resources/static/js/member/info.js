@@ -24,6 +24,36 @@ const getInfo = async() => {
 }   // func end
 getInfo();
 
+const getPointInfo = async () => {
+    const pointTbody = document.querySelector("#pointTbody");
+
+    let html = "";
+
+    try {
+        // const option = {methd : "GET"}; 생략
+
+        const response = await fetch("/point/list");
+
+        const data = await response.json();
+        console.log(data);
+
+        for(let i = 0 ; i < data.length ; i++ ){
+            let list = data[i];
+
+            html += `<tr>
+                    <th>${i+1} </th> <th>${list.plpoint} P </th> <th>${list.plcomment} </th> 
+                    <th>${list.pldate} </th>
+                </tr>`;
+        }   // for end
+
+        pointTbody.innerHTML = html;
+
+    } catch {
+    }   // try end
+
+} // func end
+getPointInfo();
+
 // 회원 탈퇴
 // alert : 알림창 , prompt : 입력상자 알림창 , confirm : 확인/취소 알림창
 const onDelete = async() => {

@@ -10,4 +10,5 @@ public class PointDto {
     private int mno ;   // 회원 번호
     private int plpoint ;   // 포인트량
     private String plcomment ;  // 포인트 지급 사유
+    private String pldate;       // 지급 날짜
 }   // class end

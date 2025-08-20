@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import web.model.dao.MemberDao;
 import web.model.dto.MemberDto;
+import web.model.dto.PointDto;
 
 import java.security.SecureRandom;
 import java.util.Map;
@@ -15,16 +16,30 @@ import java.util.Map;
 public class MemberService {
     @Autowired // 스프링 컨테이너(메모리)에 등록된 빈 주입(꺼내) 받기
     private MemberDao memberDao;
+    @Autowired
+    private PointService pointService;
 
     // [1] 회원가입
     public int signUp(MemberDto memberDto ){
         int result = memberDao.signUp( memberDto );
+        // 1 회원가입
+        boolean point = pointService.getPoint( result , 1);
+        if(!point) {
+            return 0;
+        }   // if end
         return result;
     }   // func end
 
     // [2] 로그인
     public int login(MemberDto memberDto) {
         int result = memberDao.login( memberDto );
+
+        // 2 로그인
+        boolean point = pointService.getPoint( result , 2);
+        if(!point) {
+            return 0;
+        }   // if end
+
         return result;
     }   // func end
 

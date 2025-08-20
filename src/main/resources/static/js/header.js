@@ -11,11 +11,15 @@ const myinfo = async() =>{  console.log("myinfo func")
         const response = await fetch( "/member/info" , option );
         const data = await response.json(); console.log( data );
 
+        // 포인트 요청
+        const pointRes = await fetch("/point/total");
+        const totalPoint = await pointRes.json();
 
-        // 2. [로그인중]로그인 했을때 정상 통신 fetch
-        html += ` <li> <sapn> ${ data.mid } 님 </sapn> </li>
+        // 2. 로그인 했을때 정상 통신 fetch
+        // toLocaleString => 표시 1,000 이렇게 해줌
+        html += ` <li> <span> ${ data.mid } 님  (현재 포인트: <strong>${totalPoint.toLocaleString()} 점</strong>) </span> </li>
             <li> <a href="/member/info.jsp"> 내정보 </a> </li>
-            <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>`
+            <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>`;
 
     }catch{
         // 2. [비로그인중]로그인 안했을때 비정상 통신 fetch 
