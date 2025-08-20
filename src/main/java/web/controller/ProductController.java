@@ -17,6 +17,7 @@ public class ProductController {
     @Autowired private ProductService productService;
     @Autowired private FileService fileService; // 업로드 할때 필요한 서비스
 
+
     //[1] 제품 등록
     @PostMapping("/create")
     public int createProduct( @ModelAttribute ProductDto productDto , HttpSession session ){
