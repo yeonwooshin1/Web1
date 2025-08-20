@@ -56,6 +56,7 @@ INSERT INTO productimg (pimgname, pno) VALUES
 ('greenfit2.jpg', 1),
 ('coffee1.jpg', 2);
 
+
 select * from member;
 select * from product;
 select * from productimg;
@@ -85,3 +86,4 @@ INSERT INTO pointlog (mno, plpoint, plcomment) VALUES (1, -6000, '상품구매')
 -- 회원 1이 이벤트 참여로 포인트 적립 (+500)
 INSERT INTO pointlog (mno, plpoint, plcomment) VALUES (1, 500, '이벤트적립');
 select * from pointLog;
+select COALESCE(SUM(plpoint), 0) as totalPoint FROM pointlog WHERE mno = 1;
