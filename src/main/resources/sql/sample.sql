@@ -87,3 +87,13 @@ INSERT INTO pointlog (mno, plpoint, plcomment) VALUES (1, -6000, '상품구매')
 INSERT INTO pointlog (mno, plpoint, plcomment) VALUES (1, 500, '이벤트적립');
 select * from pointLog;
 select COALESCE(SUM(plpoint), 0) as totalPoint FROM pointlog WHERE mno = 1;
+
+    CREATE TABLE memberimg (
+        mimgno    INT AUTO_INCREMENT,              -- 회원 이미지 번호 (기본키)
+        mimgname  VARCHAR(255) NOT NULL,           -- 파일명
+        mno       INT NOT NULL,                    -- 회원 번호 (FK)
+        CONSTRAINT PRIMARY KEY (mimgno),
+        CONSTRAINT FOREIGN KEY (mno) REFERENCES member(mno) ON DELETE CASCADE
+    );
+    
+    
