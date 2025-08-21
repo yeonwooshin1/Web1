@@ -13,6 +13,7 @@
 
     <div id="container">
         <div id="map" style="width:100%;height:350px;"></div>
+        <div id="product"> </div>
     </div>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1ac4a57d8a5927d34020a891fcdbbcbd&libraries=clusterer"></script>

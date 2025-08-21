@@ -19,17 +19,12 @@ const idFind = async() => {
         const response = await fetch("/member/find" , option );
 
         const data = await response.json();
-
-        if(data.mid == "") {
-            alert("입력하신 정보가 일치하지 않습니다.");
-            return;
-        } 
         const result = "회원님의 아이디는 : " + data.mid +" 입니다."
 
         resultFind.innerHTML = result;
 
     } catch {
-        alert("잘못된 접근입니다.");
+        alert("입력하신 정보가 일치하지 않습니다.");
         return;
     }   // try end
 
