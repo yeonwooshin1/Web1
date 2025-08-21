@@ -18,7 +18,7 @@ public class MemberController {
 
     // [1] 회원가입
     @PostMapping("/signup")
-    public int signUp(@RequestBody MemberDto memberDto ){
+    public int signUp(@ModelAttribute MemberDto memberDto ){
         int result = memberService.signUp( memberDto );
         return result;
     } // func end

@@ -28,6 +28,8 @@
         연락처 : <input onkeyup="phoneCheck()" type="text" class="phoneInput" id="phoneInput"/>    <br/>
         <div class="phonecheck"> </div>
 
+        프로필 사진 첨부 : <input type="file">
+
         <button type="button" onclick="signup()"> 회원가입 </button> <br/>
         <a href="/member/login.jsp"> 로그인하기 </a>
         <a href="/member/find.jsp"> 아이디/비밀번호찾기 </a>
