@@ -14,7 +14,7 @@ const getList = async()=>{
 const getMap = async ()=>{
 
 
-
+    
     // 1. 지도 생성
     var map = new kakao.maps.Map(document.getElementById('map'), {
     center : new kakao.maps.LatLng( 37.4905335508 , 126.7244907601 ),  level : 8 });
@@ -47,8 +47,8 @@ const getMap = async ()=>{
                 for(let i =0; i< product.images.length; i++){
 
                 let img = product.images[i];    // i번째 이미지
-                html += `<img src="/upload/${product.images}" />`;
-                
+                html += `<img src="/upload/${img}" />`;
+
                 }   // for end
 
             }   // if end

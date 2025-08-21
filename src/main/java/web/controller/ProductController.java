@@ -40,7 +40,7 @@ public class ProductController {
                 if( result2 == false ) return 0; // 만약에 db에 이미지 저장 실패시 0 반환
             }
         }
-        // 4. 처리된 업로드파일 DB처리한다.
+        // 4. 처리 된 업로드파일 DB처리한다.
         return result;
     }
 
