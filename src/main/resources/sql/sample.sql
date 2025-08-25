@@ -12,6 +12,7 @@ CREATE TABLE member (
     mphone  VARCHAR(13) UNIQUE NOT NULL,                  -- 회원 연락처
     mdate   DATETIME DEFAULT NOW(),                 -- 가입일
     CONSTRAINT PRIMARY KEY (mno)
+
 );
 
 -- 샘플 데이터 삽입
