@@ -1,5 +1,3 @@
-
-
 <%@ page language = "java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -19,22 +17,22 @@
             <li> <a href="/datago/data.jsp"> 공공데이터 </a> </li>
             <li> <a href="/kakao/map.jsp"> 카카오지도 </a> </li>
             <li> <a href="/kakao/datamap.jsp"> 데이터지도 </a> </li>
-            <li> <a href="/실습7/실습7.jsp"> 실습7 </a> </li>
             <li> <a href="/product/create.jsp"> 제품등록 </a> </li>
             <li> <a href="/product/list.jsp"> 제품보기 </a> </li>
+
+            <li> <a href="/post/post.jsp?cno=1"> 뉴스 </a> </li>
+            <li> <a href="/post/post.jsp?cno=2"> 이벤트 </a> </li>
+            <li> <a href="/post/post.jsp?cno=3"> FAQ </a> </li>
+            <li> <a href="/post/post.jsp?cno=4"> 튜토리얼 </a> </li>
+            <li> <a href="/post/post.jsp?cno=5"> 사용자리뷰 </a> </li>
+
         </ul>
-        <ul id="log-menu">
-            <!-- 로그인 안했을때 구역 -->
-            <li> <a href="/member/login.jsp"> 로그인 </a></li>
-            <li> <a href="/member/signup.jsp"> 회원가입 </a></li>
-            <!-- 로그인 했을때 구역 -->
-            <li> <span> OOO님 </span> </li>
-            <li> <span> (현재 포인트: 1,200점) </span></li>
-            <li> <a href="/member/info.jsp"> 내정보 </a> </li>
-            <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
+        <ul id="log-menu"> <!-- 로그인 안했을때 구역 / 로그인 했을때 구역  를 JS 해서 표현 -->
+
         </ul>
     </div>
     <!-- JS 가져오기 -->
     <script src="/js/header.js"> </script>
 
 </body>
+</html>
